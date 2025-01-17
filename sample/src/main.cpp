@@ -3,10 +3,12 @@
 
 int main()
 {
-	Foo ui;
-	ui.Display();
-	/*GameObjectFactory factory;
-	GameObject* entity = factory.create("Player");
-	entity->description();*/
+	GameObject* entity = nullptr;
+	{
+		GameObjectFactory factory;
+		entity = factory.create("Player");
+	}
+	entity->description();
+	delete entity;
 	return 0;
 }

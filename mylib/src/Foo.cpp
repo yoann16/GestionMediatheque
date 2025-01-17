@@ -1,37 +1,35 @@
 #include "Foo.h"
 #include <iostream>
 
-void Foo :: Display()
+void Foo::display()
 {
-	std::cout << "Hello" << std::endl;
+	std::cout<<"Hello" << std::endl;
 }
-void Player::description() const
+Player:: ~Player()
 {
-	std::cout << "Player" << std::endl;
+    std::cout << "Game Over" << std::endl;
 }
-void Enemy::description() const
+void Player::description()
 {
-	std::cout << "Enemy" << std::endl;
+    std::cout << "Player" << std::endl;
 }
-
-void PowerUp::description() const
+GameObject* Player::clone()
 {
-	std::cout << "PowerUp" << std::endl;
+    return new Player();
 }
-
-GameObject* GameObjectFactory::create(const std::string& entity) 
+void Enemy::description()
 {
-	if (entity == "Player") 
-	{
-		return new Player();
-	}
-	else if (entity == "Enemy") 
-	{
-		return new Enemy();
-	}
-	else if (entity == "PowerUp") 
-	{
-		return new PowerUp();
-	}
-	return nullptr;
+    std::cout << "Enemy" << std::endl;
+}
+GameObject* Enemy::clone()
+{
+    return new Enemy();
+}
+void PowerUp::description()
+{
+    std::cout << "PowerUp" << std::endl;
+}
+GameObject* PowerUp::clone()
+{
+    return new PowerUp();
 }
