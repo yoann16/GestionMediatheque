@@ -31,7 +31,7 @@ set(SOURCES
 message(STATUS "SOURCES: ${SOURCES}")
 add_library(${PROJECT_NAME}
 STATIC
-    ${SOURCES}
+    ${SOURCES} 
     ${HEADERS}
 )
 
